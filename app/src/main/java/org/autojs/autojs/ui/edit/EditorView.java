@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -23,8 +25,11 @@ import androidx.fragment.app.FragmentManager;
 
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -284,8 +289,18 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         setUpInputMethodEnhancedBar();
         setUpFunctionsKeyboard();
         setMenuItemStatus(R.id.save, false);
+        setTextSize(Pref.getEditorTextSize((int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize())));
         mDocsWebView.getWebView().getSettings().setDisplayZoomControls(true);
         mDocsWebView.getWebView().loadUrl(Pref.getDocumentationUrl() + "index.html");
+        mEditor.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (2 == event.getPointerCount()) {
+                    scaleGestureDetector.onTouchEvent(event);
+                }
+                return  false;
+            }
+        });
         Themes.getCurrent(getContext())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::setTheme);
@@ -394,6 +409,12 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
             case R.id.cancel_search:
                 cancelSearch();
                 break;
+            case R.id.textSizePlus:
+                setTextSizePlus();
+                break;
+            case R.id.textSizeMinus:
+                setTextSizeMinus();
+                break;
         }
     }
 
@@ -428,7 +449,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     public Observable<String> save() {
         String path = mUri.getPath();
-        if(Pref.isAutoBack()){
+        if (Pref.isAutoBack()) {
             PFiles.move(path, path + ".bak");
         }
         return Observable.just(mEditor.getText())
@@ -538,6 +559,18 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     public void setTextSize(int value) {
         Pref.setEditorTextSize(value);
         mEditor.getCodeEditText().setTextSize(value);
+    }
+
+    public void setTextSizePlus() {
+        int value = (int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize());
+        Pref.setEditorTextSize(Math.min(value + 2, 60));
+        mEditor.getCodeEditText().setTextSize(Math.min(value + 2, 60));
+    }
+
+    public void setTextSizeMinus() {
+        int value = (int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize());
+        Pref.setEditorTextSize(Math.max(value - 2, 2));
+        mEditor.getCodeEditText().setTextSize(Math.max(value - 2, 2));
     }
 
     private void selectEditorTheme(List<Theme> themes) {
@@ -704,4 +737,34 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         mEditor.destroy();
         mAutoCompletion.shutdown();
     }
+
+    ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(getContext(),
+            new ScaleGestureDetector.OnScaleGestureListener() {
+                @Override
+                public boolean onScale(ScaleGestureDetector detector) {
+                    float scaleFactor = detector.getScaleFactor();
+                    Log.i("--------onScale", String.valueOf(scaleFactor));
+                    if(scaleFactor>1){
+                        setTextSizePlus();
+                    }else{
+                        setTextSizeMinus();
+                    }
+                  //  invalidate();
+                    return true;
+                }
+                @Override
+                public boolean onScaleBegin(ScaleGestureDetector detector) {
+                    Log.i("--------onScaleBegin", String.valueOf(detector.getScaleFactor()));
+                    return true;
+                }
+                @Override
+                public void onScaleEnd(ScaleGestureDetector detector) {
+                    Log.i("--------onScaleEnd", String.valueOf(detector.getScaleFactor()));
+                }
+            });
+
+
+
+
+
 }

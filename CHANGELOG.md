@@ -1,5 +1,211 @@
 # Change Log
+
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
+
+### 5.7.11
+优化以下特性：
+* 感谢[weili71]( https://github.com/weili71/AutoX)
+添加Android新版本的无障碍全局动作函数
+包过：
+'takeScreenshot',
+'lockScreen',
+'dismissNotificationShade',
+'keyCodeHeadsetHook',
+'accessibilityShortcut',
+'accessibilityButtonChooser',
+'accessibilityButton',
+'accessibilityAllApps',
+'dpadUp',
+'dpadDown',
+'dpadRight',
+'dpadLeft',
+'dpadCenter'
+* 编译版本升级到android 32 会不会产生新bug 未知
+apk下载地址 选actions https://github.com/kkevsekk1/AutoX/actions
+* 未知原因导致无法上传文件服务器，故不能直接下载，请打github下载
+
+### 5.7.10
+优化以下特性：
+感谢[falcolee]( https://github.com/falcolee)
+增加pro的websocket功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/webSocket)
+增加pro的zip功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/zip)
+增加pro的加解密功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/crypto)
+相关功能 可以参考 实例代码
+感谢 [heham](https://github.com/heham) 调整文档
+ 感谢 [gxylfm](https://github.com/gxylfm)  修复没有勾选权限情况打开APP闪退问题
+这是用手机发布的，没法升级版本号，
+apk下载地址 选actions  https://github.com/kkevsekk1/AutoX/actions/runs/2088633898
+
+
+### 5.7.9
+优化以下特性：
+感谢[falcolee]( https://github.com/falcolee)
+增加pro的websocket功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/webSocket)
+增加pro的zip功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/zip)
+增加pro的加解密功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/crypto)
+相关功能 可以参考 实例代码
+感谢 [heham](https://github.com/heham) 调整文档
+
+### 5.7.8
+优化以下特性：
+*  完善桌面快捷方式的创建
+*  更换包名兼容 autojs 同时存在
+
+
+### 5.7.7
+优化以下特性：
+*  去掉应用校验
+* 感谢 [syhyz](https://github.com/syhyz/)  修复
+* 首次加载问题
+* ocr模型路径问题
+* 调整排序算法
+
+
+
+### 5.7.6
+优化以下特性：
+*  回滚到 rhino-1.7.13
+
+### 5.7.5
+优化以下特性：
+*   双指缩放代码编辑页
+*   感谢 [heham](https://github.com/heham)  修复
+*   进一步解决OCR内存泄漏问题
+*   Background拼写问题
+
+
+
+### 5.7.4
+优化以下特性：
+*   感谢 [syhyz](https://github.com/syhyz/)  ocr 结果排序问题
+*   空指针问题
+
+### 5.7.3
+优化以下特性：
+*  感谢 [heham](https://github.com/heham/)  修复屏幕宽带为0 的bug
+*  感谢 [syhyz](https://github.com/syhyz/)  rhino-1.7.14  升级
+*  修改一些文档,修复ocr内存泄露问题
+*  新年已开始，欢迎反馈bug，最近一个月会大力支持新功能
+
+
+### 5.7.2
+优化以下特性：
+*  感谢 [heham](https://github.com/heham/)  修复屏幕宽带为0 的bug
+*  感谢 [syhyz](https://github.com/syhyz/)  rhino-1.7.14  升级
+*  修改一些文档等
+*  新年已开始，欢迎反馈bug，最近一个月会大力支持新功能
+
+
+### 5.7.1
+优化以下特性：
+*  5.7.0默认发布为 64位版本，优化性能问题，需32位版本到github下载 5.7.0以前的版本。
+*  感谢 [Aioure](https://github.com/Aioure)  升级如下功能：
+*  修复64位版本中的一些bug
+*  修复字体大小设置无法保存问题
+*  其他一些bug
+*  欢迎反馈64位版本的bug
+
+
+### 5.7.0
+优化以下特性：
+*  感谢 [Aioure](https://github.com/Aioure)  升级如下功能：
+*  5.7.0默认发布为 64位版本，优化性能问题，需32位版本到github下载。
+*  ocr相关bug
+*  其他一些bug
+*  欢迎提交bug，欢迎pr本项目，欢迎pr文档，欢迎给贡献代码的开发者点赞！
+
+
+### 5.6.4
+优化以下特性：
+*  版本检查问题
+*  感谢 [Aioure](https://github.com/Aioure)  升级如下功能：
+*  ocr一些调整和完善，更多模型
+*  7zip一下完善，更多参数
+*  欢迎提交bug，欢迎pr本项目，欢迎pr文档，欢迎给贡献代码的开发者点赞！
+
+### 5.6.3
+优化以下特性：
+*  感谢 [Aioure](https://github.com/Aioure)  升级如下功能：
+*  ocr一些调整和完善，更多模型
+*  7zip一下完善，更多参数
+*  欢迎提交bug，欢迎pr本项目，欢迎pr文档，欢迎给贡献代码的开发者点赞！
+
+
+### 5.6.2
+优化以下特性：
+*  升级了一下[文档](https://github.com/kkevsekk1/kkevsekk1.github.io)项目一些路径问题，删除了本地文档
+*  修改为在线文档，使用cdn加速github的文档
+*  删除不必要的用户检测
+*  [Aioure](https://github.com/Aioure)  升级如下功能：
+*  ocr一些调整和完善
+*  7zip一下完善
+*  欢迎提交bug，欢迎pr本项目，欢迎pr文档，欢迎给贡献代码的开发者点赞！
+
+
+### 5.6.1
+优化以下特性：
+*  手动检测更新无法显示问题
+*  重新配置控件，升级androidx
+*  修复定时任务月份bug
+*  提示开启权限，后运行
+*  qq群号问题
+*  脚本目录修改bug
+*  IP地址不合法bug
+*  不兼容arm64 bug
+*  [Aioure](https://github.com/Aioure)  升级如下功能：
+*  编译兼容低版本的opencv
+*  集成PaddleOCR
+*  修复若干兼容问题
+*  此版本有重大升级变化，欢迎测试提交bug
+
+
+
+### 5.5.6
+优化以下特性：
+*  [Aioure](https://github.com/Aioure)  升级如下功能：
+*  opencv 到4.5.5版，修复上一版兼容问题
+*  最低版升级到21即android 5
+*  打包后的dex进行拆分
+
+### 5.5.5
+优化以下特性：
+*  感谢 [Aioure](https://github.com/Aioure) 更新如下功能，次版本可能存在bug，欢迎反馈
+*  RhinoJS 升级版本到1.7.13版
+*  更新 opencv 到4.2.0版
+*  添加多媒体、Webview扩展与游戏编程两组示例等
+*  修复一些闪退问题，此版本有重大升级变化
+
+### 5.5.3
+优化以下特性：
+* 增加配置隐藏启动图标，只能通过adb等其他方式启动app
+* 感谢 [Aioure](https://github.com/Aioure) 增加7zip 相关api，在打包app中应用
+* 修复一些闪推问题
+
+
+
+### 5.5.2
+优化以下特性：
+1.增加配置进行，音量上键是否停止脚本（需开启无障碍）
+2.增加配置关闭启动页，
+3.修复配置非ui模式，隐藏开启日志无效，ui模式下，应该从ui界面取去日志
+4.修复空文件夹不能删除
+5.升级androidx
+6.修改配置项设置效果，无效项仅保留，
+7.闪退问题，打包后app中，暂时屏蔽7zip
+
+### 5.5.1
+优化以下特性：
+*  恢复默认保活功能，删除上通知栏功能
+*  修复项目打包bug
+*  感谢 [Aioure](https://github.com/Aioure) 增加7zip 压缩，解压功能
+*  7zip的api文档需要进一步完善...
+
+
+### 5.4.0
+优化以下特性：
+*  删除默认保活功能和上通知栏功能
+*  按网友方法加入识别web元素功能，但是此api已经被标记过时
+*  [falcolee](https://github.com/falcolee) 修复项目名的bug
 
 
 ### 5.3.2
